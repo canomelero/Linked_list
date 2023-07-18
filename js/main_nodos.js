@@ -6,6 +6,8 @@ const indice_remove = document.querySelector(".borrar");
 const contenedor = document.querySelector(".contenedor");
 const contenedor_error = document.querySelector(".contenedor-error");
 
+// comentario de prueba
+
 class Nodo {
     constructor(indice) {
         this.indice = indice;
