@@ -1,6 +1,6 @@
 const add = document.querySelector(".boton-add");
 const remove = document.querySelector(".boton-borrar");
-// const clear = document.querySelector(".boton-vaciar");
+const clear = document.querySelector(".boton-vaciar");
 const indice_add = document.querySelector(".add");
 const indice_remove = document.querySelector(".borrar");
 const contenedor = document.querySelector(".contenedor");
@@ -28,10 +28,11 @@ cargarEventos();
 function cargarEventos() {
     add.addEventListener('click', insertNode);
     remove.addEventListener('click', removeNode);
-
-    /*clear.addEventListener('click', (evento) => {
+    clear.addEventListener('click', () => {
         limpiarHTML();
-    });*/
+        lista.cabecera = null;
+        console.log(lista);
+    })
 }
 
 
