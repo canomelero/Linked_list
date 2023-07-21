@@ -41,12 +41,13 @@ function cargarEventos() {
    1) Comprueba si la lista está vacía (cabecera = null). Si es así, agrega a la cabecera el objeto nodo 
    2) Si la lista no está vacía, se va recorriendo toda la lista. Se accede al nodo siguiente al que apunta el nodo actual (el guardado en la variable "siguiente"); accedidos a ese nodo se hace la misma operación hasta llegar al último nodo que apunta a "null"
 */
-function insertNode(evento) {
+function insertNode() {
     const indice = indice_add.value;
     const nuevoNodo = new Nodo(indice);
 
     if((lista.cabecera === null) && (indice >= 1)) {
         lista.cabecera = nuevoNodo;
+        limpiarError();
     }
     else if((lista.cabecera !== null) && (indice >= 1)) {
         let nodo_actual = lista.cabecera;
@@ -56,6 +57,7 @@ function insertNode(evento) {
         }
 
         nodo_actual.siguiente = nuevoNodo;
+        limpiarError();
     }
     else if(indice < 1) {
         error(1);
@@ -128,7 +130,7 @@ function agregarHTML(nodo) {
 
             <div class="arrow"></div>
         </div>
-    `
+    `;
 
     contenedor.appendChild(row);
 }
@@ -149,23 +151,16 @@ function limpiarError() {
 
 
 // Funciones de ERRORES
-function error(numero) {
+function error() {
     // Limpiamos el mensaje de error 
     limpiarError();
 
     const msg = document.createElement("div");
 
-    if (numero === 1) {
-        msg.innerHTML = `
-            <p class="error">Índice válido: num >= 1</p>
-        `
-    }
-    else if(numero === 2) {
-        msg.innerHTML = `
-            <p class="error">Índice no encontrado</p>
-        `
-    }
-    
+    msg.innerHTML = `
+        <p class="error">Índice válido: num >= 1</p>
+    `;
+     
     contenedor_error.appendChild(msg); 
 } 
 
