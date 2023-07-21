@@ -67,6 +67,12 @@ function insertNode() {
     imprimirNodos();
 }
 
+/*
+    FUNCIONAMIENTO DEL ALGORITMO "removeNode":
+    1) Si el nodo de la cabecera (primer nodo) tiene el mismo indice, se borra siendo sustituido por el nodo siguiente
+    2) Si el nodo de la cabecera (primer nodo) tiene "null" como valor en el dato siguiente, se vacia la lista
+    3) Se recorre la lista hasta encontrar el nodo con el mismo indice. Una vez encontrado, el nodo con el mismo es sustituido por su siguiente y se irá repitiendo el mismo proceso con los siguientes nodos
+*/
 function removeNode() {
     const indice = indice_remove.value;
     let nodo = lista.cabecera;
